@@ -276,48 +276,9 @@ updateuser(){
       this.navCtrl.push(LibraryPage);
     }
     fetchdata :any ;
-    gotochallenge(){
-
-      // fetching data 
-
-      let fetch = {
-        userid:this.id
-    }
-    const loader = this.loadingCtrl.create({
-        content: " ...ارجوك انتظر",
-    });
-    loader.present();
-    this.http.get('http://api.hemam.online/videostatus' ,{params: fetch} ).map(res => res.json()).catch(error => Observable.create(error.json())).subscribe(fetchdata =>
-    {
-        var fresult = fetchdata;
-        this.fetchdata= fetchdata;
-      
-        if(fresult == 1){
-           // this.navCtrl.setRoot(DashboardPage);
-            console.log('NotGoChallenge');
-            const toast = this.toastCtrl.create({
-              message: 'لا يمكنك تحميل الفيديو التالي. الفيديو الأخير الخاص بك معلقة',
-              duration: 4000
-          });
-          toast.present();
-          this.navCtrl.setRoot(DashboardPage);
-        }else{
-          console.log('GoToChallenge');
-            this.navCtrl.push(ChallengePage);
-
-        }
-        loader.dismiss();
-        
-    },
-        err => {
-            loader.dismiss();
-            const toast = this.toastCtrl.create({
-                message: 'شيء ما خطأ. حاول مرة اخرى',
-                duration: 4000
-            });
-            toast.present();
-        });
-    // fetching data close .
+    
+    gotochallenge(){      
+        this.navCtrl.push(ChallengePage);     
     }
     gotohicertificate(){
           this.navCtrl.push(CertificatePage);      

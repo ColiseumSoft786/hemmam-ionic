@@ -497,8 +497,8 @@ Copyright (c) 2015 Daniel Eden
     transform: skewX(-0.78125deg) skewY(-0.78125deg);
   }
   77.7% {
-    -webkit-transform: skewX(0.39062deg) skewY(0.39062deg);
-    transform: skewX(0.39062deg) skewY(0.39062deg);
+    -webkit-transform: skewX(0.39063deg) skewY(0.39063deg);
+    transform: skewX(0.39063deg) skewY(0.39063deg);
   }
   88.8% {
     -webkit-transform: skewX(-0.19531deg) skewY(-0.19531deg);
@@ -534,8 +534,8 @@ Copyright (c) 2015 Daniel Eden
     transform: skewX(-0.78125deg) skewY(-0.78125deg);
   }
   77.7% {
-    -webkit-transform: skewX(0.39062deg) skewY(0.39062deg);
-    transform: skewX(0.39062deg) skewY(0.39062deg);
+    -webkit-transform: skewX(0.39063deg) skewY(0.39063deg);
+    transform: skewX(0.39063deg) skewY(0.39063deg);
   }
   88.8% {
     -webkit-transform: skewX(-0.19531deg) skewY(-0.19531deg);
@@ -32894,7 +32894,11 @@ page-certificate [subitem-subtitle] {
   line-height: 17px;
 }
 
-page-challenge .left {
+page-challenge ion-list-header h1 {
+  float: right;
+}
+
+page-challenge .right {
   float: right;
 }
 
@@ -33099,6 +33103,23 @@ page-history ion-content ion-card ion-card-content {
   padding-top: 28px !important;
 }
 
+page-home .alert-radio-group button:nth-child(1) .alert-radio-label:before {
+  content: url(/assets/images/background/39.jpg);
+}
+
+page-home .logo_div {
+  width: 100%;
+}
+
+page-home .logo_div img {
+  margin: auto !important;
+}
+
+page-home * {
+  color: #5881c2 !important;
+  font-size: 16px !important;
+}
+
 page-home .scroll-content {
   padding-bottom: 0 !important;
 }
@@ -33121,7 +33142,6 @@ page-home .scroll-content ion-grid ion-row img {
   height: 135px;
   margin-bottom: 0px;
   display: block;
-  margin-left: 29% !important;
 }
 
 page-home .scroll-content ion-grid ion-row form {

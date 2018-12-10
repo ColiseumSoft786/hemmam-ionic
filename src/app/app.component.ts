@@ -19,7 +19,7 @@ import { CertificatePage } from '../pages/certificate/certificate';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = ChallengePage;
 
   pages: Array<{title: string, component: any}>;
 

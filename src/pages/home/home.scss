@@ -1,4 +1,22 @@
 page-home {
+  ion-segment-button{
+   
+  }
+  .alert-radio-group button:nth-child(1) .alert-radio-label:before {
+    content: url(/assets/images/background/39.jpg);
+}
+
+
+  .logo_div{
+    width: 100%;
+  }
+  .logo_div img{
+   margin: auto !important;
+  }
+  *{
+    color: #5881c2 !important;
+    font-size: 16px !important;
+  }
   .scroll-content {
     padding-bottom: 0 !important;
     [drop]{
@@ -16,7 +34,6 @@ page-home {
               height: 135px;
               margin-bottom: 0px;
               display: block;
-              margin-left: 29% !important;
         }
         // Settings Form
         form {
@@ -89,6 +106,7 @@ page-home {
 
           [segment-block] {
             margin: 0 0 10px;
+
           }
           // Register Title
           [register-title] {

@@ -15,9 +15,11 @@
     <!--- SETTINGS LOGIN SCREEN -->
     <ion-row *ngIf="isEnabled('login')" padding-left padding-right align-items-center>
       <ion-col margin-bottom col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
-        <ion-item transparent  no-lines>
-          <!---Logo-->
-          <img item-start [src]="data.logo" class="applogo">
+        <ion-item transparent  no-lines>          
+          <div class="logo_div">
+            <!---Logo-->
+            <img item-start [src]="data.logo" class="applogo">
+          </div>                       
         </ion-item>
       </ion-col>
       <ion-col text-center col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
@@ -50,8 +52,10 @@
     <ion-row *ngIf="isEnabled('register')" padding-left padding-right align-items-center>
       <ion-col margin-bottom col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
         <ion-item transparent no-margin no-padding no-lines>
-          <!---Logo-->
-          <img item-start [src]="data.logo">
+            <div class="logo_div">
+              <!---Logo-->
+              <img item-start [src]="data.logo">
+            </div>
         </ion-item>
       </ion-col>
       <ion-col text-center col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
@@ -90,7 +94,7 @@
                 <ion-label>جنس</ion-label>
                 <ion-select [(ngModel)]="genderRegister" [ngModelOptions]="{standalone: true}">
                     <ion-option value="الذكر">الذكر</ion-option>
-                    <ion-option value="إناثا">إناثا</ion-option>
+                    <ion-option value="إناثا"> إناثا</ion-option>
                 </ion-select>
               </ion-item>
 

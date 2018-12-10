@@ -27,6 +27,8 @@ coverage
 bower_components
 platforms
 www
+.idea
+.sourcemaps
 
 # node-waf configuration
 .lock-wscript

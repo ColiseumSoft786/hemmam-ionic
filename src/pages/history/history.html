@@ -1,0 +1,50 @@
+<!--
+  Generated template for the HistoryPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>تاريخ الفيديو
+      </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+    <div *ngIf="data != null">
+        <ion-list >
+          <!--Text Header Top-->
+        
+          <!--Text Content List -->
+          <ion-card transparent no-margin *ngFor="let data of videoinfo" >
+            <div style="width:100%; ">              
+              <h2 style="float:right; margin: 10px;">{{data.task.tasks}}</h2>
+                <div>{{data.title}}</div>
+              <div item-content item-subtitle  class="status" *ngIf="data.status == 10">
+                    <!-- Pending --> قيد الانتظار
+              </div>
+              <div item-content item-subtitle class="status" *ngIf="data.status == 0">
+                  <!-- Disapprove --> رفض
+            </div>
+            <div item-content item-subtitle class="status" *ngIf="data.status == 1">
+                <!-- Approve -->يوافق
+          </div> 
+            </div>
+           <br>
+            <ion-card-content>
+              <video controls="controls" class="videoPlayer" style="width: 100%;">
+                  <source src="{{data.video}}" type="video/mp4" />
+              </video>
+            </ion-card-content>
+            <hr style="    border: 0.02px solid skyblue;">
+          
+          </ion-card>
+
+        </ion-list>
+      </div>
+</ion-content>

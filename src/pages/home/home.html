@@ -1,0 +1,185 @@
+<!-- Themes Login + logo 1 -->
+<ion-content has-header *ngIf="data != null" background-size [ngStyle]="{'background-image': 'url(' + data.background + ')'}">
+  <ion-grid no-padding *ngIf="data != null">
+    <div segment-block>
+      <ion-segment has-header [(ngModel)]="selectedItem">
+        <ion-segment-button value="login">
+          {{data.segmentLogin}}
+        </ion-segment-button>
+        <ion-segment-button value="register">
+          {{data.segmentRegister}}
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <!--- SETTINGS LOGIN SCREEN -->
+    <ion-row *ngIf="isEnabled('login')" padding-left padding-right align-items-center>
+      <ion-col margin-bottom col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <ion-item transparent  no-lines>
+          <!---Logo-->
+          <img item-start [src]="data.logo" class="applogo">
+        </ion-item>
+      </ion-col>
+      <ion-col text-center col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <form margin-bottom>
+        <!---Logo Title-->
+        <!---Input field username-->
+        <ion-item text-center transparent>
+          <ion-label stacked>{{data.login.labelUsername}}</ion-label>
+          <ion-input text-center required type="email" [placeholder]="data.login.username" [(ngModel)]="usernameLogin" [ngModelOptions]="{standalone: true}"></ion-input>
+          <ion-label error-field no-margin *ngIf="!isUsernameValidLogin">{{data.login.errorUser}}</ion-label>
+        </ion-item>
+        <!---Input field password-->
+        <ion-item transparent>
+          <ion-label stacked>{{data.login.labelPassword}}</ion-label>
+          <ion-input text-center required type="password" [placeholder]="data.login.password" [(ngModel)]="passwordLogin" [ngModelOptions]="{standalone: true}"></ion-input>
+          <ion-label error-field no-margin *ngIf="!isPasswordValidLogin">{{data.login.errorPassword}}</ion-label>
+        </ion-item>
+        
+        <div button-form>
+          <!---Facebook button-->
+          
+          <!---Login button-->
+          <button ion-button default-button text-capitalize box-shadow (click)="onEvent('onLogin')">{{data.login.login}}</button>
+        </div>
+      </form>
+      </ion-col>
+    </ion-row>
+
+    <!--- SETTINGS REGISTER SCREEN -->
+    <ion-row *ngIf="isEnabled('register')" padding-left padding-right align-items-center>
+      <ion-col margin-bottom col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <ion-item transparent no-margin no-padding no-lines>
+          <!---Logo-->
+          <img item-start [src]="data.logo">
+        </ion-item>
+      </ion-col>
+      <ion-col text-center col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <form margin-bottom>
+          <!-- Register Title -->
+          <h1 register-title no-margin padding-bottom text-wrap>{{data.register.title}}</h1>
+          <!--Form-->
+          <ion-item text-center>
+            <!---Input field username-->
+            <ion-label stacked>{{data.register.lableUsername}}</ion-label>
+            <ion-input text-center required [placeholder]="data.register.username" type="text" [(ngModel)]="usernameRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+            <ion-label error-field no-margin *ngIf="!isUsernameValidRegister">{{data.register.errorUser}}</ion-label>
+          </ion-item>
+          
+          <ion-item text-center>
+            <!---Input field email-->
+            <ion-label stacked>{{data.register.lableEmail}}</ion-label>
+            <ion-input text-center required [placeholder]="data.register.email" type="email"  required [(ngModel)]="emailRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+            <ion-label error-field no-margin *ngIf="!isEmailValidRegister">{{data.register.errorEmail}}</ion-label>
+          </ion-item>
+          <ion-item text-center>
+              <!---Input field password-->
+              <ion-label stacked>{{data.register.lablePassword}}</ion-label>
+              <ion-input text-center required [placeholder]="data.register.password" type="password" [(ngModel)]="passwordRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+              <ion-label error-field no-margin *ngIf="!isPasswordValidRegister">{{data.register.errorPassword}}</ion-label>
+            </ion-item>
+
+            <ion-item text-center>
+                <!---Input field Mobile-->
+                <ion-label stacked>{{data.register.lableMobile}}</ion-label>
+                <ion-input text-center required [placeholder]="data.register.Mobile" type="number" [(ngModel)]="mobileRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+                <ion-label error-field no-margin *ngIf="!isMobileValidRegister">{{data.register.errorPassword}}</ion-label>
+              </ion-item>
+
+              <ion-item text-center drop>
+                <ion-label>جنس</ion-label>
+                <ion-select [(ngModel)]="genderRegister" [ngModelOptions]="{standalone: true}">
+                    <ion-option value="الذكر">الذكر</ion-option>
+                    <ion-option value="إناثا">إناثا</ion-option>
+                </ion-select>
+              </ion-item>
+
+              <!-- <ion-item text-center> -->
+                  <!---Input field BirthDay-->
+                  <!-- <ion-label stacked>{{data.register.lableMobile}}</ion-label>
+                  <ion-input text-center required [placeholder]="data.register.password" type="password" [(ngModel)]="passwordRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+                  <ion-label error-field no-margin *ngIf="!isPasswordValidRegister">{{data.register.errorPassword}}</ion-label>
+                </ion-item> -->
+
+                <ion-item text-center>
+                    <!---Input field Nationality-->
+                    <ion-label stacked>{{data.register.lableNationality}}</ion-label>
+                    <ion-input text-center required [placeholder]="data.register.Nationality" type="text" [(ngModel)]="nationalityRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+                    <ion-label error-field no-margin *ngIf="!isNationalityValidRegister">{{data.register.errorCountry}}</ion-label>
+                  </ion-item>
+
+                  <ion-item text-center drop>
+                      <ion-label>نوع الهوية</ion-label>
+                      <ion-select [(ngModel)]="identificationtypeRegister" [ngModelOptions]="{standalone: true}">
+                          <ion-option value="ID">هوية شخصية</ion-option>
+                          <ion-option value="Passport">جواز سفر</ion-option>
+                      </ion-select>
+                  </ion-item>
+          <ion-item text-center>
+            <!---Input field Id Number-->
+            <ion-label stacked>{{data.register.lableIdNumber}}</ion-label>
+            <ion-input text-center required [placeholder]="data.register.IdNumber" type="text"  required [(ngModel)]="idnumberRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+            <ion-label error-field no-margin *ngIf="!isIdnumberValidRegister">{{data.register.errorCountry}}</ion-label>
+          </ion-item>
+
+          <ion-item text-center>
+              <!---Input field Addresss-->
+              <ion-label stacked>{{data.register.lableAddresss}}</ion-label>
+              <ion-input text-center required [placeholder]="data.register.Addresss" type="text"  required [(ngModel)]="addresssRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+              <ion-label error-field no-margin *ngIf="!isAddresssValidRegister">{{data.register.errorCountry}}</ion-label>
+          </ion-item>
+
+          <ion-item text-center>
+              <!---Input field State-->
+              <ion-label stacked>{{data.register.lableState}}</ion-label>
+              <ion-input text-center required [placeholder]="data.register.State" type="text"  required [(ngModel)]="stateRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+              <ion-label error-field no-margin *ngIf="!isStateValidRegister">{{data.register.errorCountry}}</ion-label>
+          </ion-item>
+
+          <ion-item text-center>
+              <!---Input field EducationLevel-->
+              <ion-label stacked>{{data.register.lableEducationLevel}}</ion-label>
+              <ion-input text-center required [placeholder]="data.register.EducationLevel" type="text"  required [(ngModel)]="educationLevelRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+              <ion-label error-field no-margin *ngIf="!isEducationLevelValidRegister">{{data.register.errorCountry}}</ion-label>
+          </ion-item>
+
+          <ion-item text-center>
+              <!---Input field Major-->
+              <ion-label stacked>{{data.register.lableMajor}}</ion-label>
+              <ion-input text-center required [placeholder]="data.register.Major" type="text"  required [(ngModel)]="majorRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+              <ion-label error-field no-margin *ngIf="!isMajorValidRegister">{{data.register.errorCountry}}</ion-label>
+          </ion-item>
+
+          <ion-item text-center>
+              <!---Input field University-->
+              <ion-label stacked>{{data.register.lableUniversity}}</ion-label>
+              <ion-input text-center required [placeholder]="data.register.University" type="text"  required [(ngModel)]="universityRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+              <ion-label error-field no-margin *ngIf="!isUniversityValidRegister">{{data.register.errorCountry}}</ion-label>
+          </ion-item>
+          <ion-item text-center>
+              <!---Input field Graduation Year-->
+              <ion-label stacked>{{data.register.lableGraduationYear}}</ion-label>
+              <ion-input text-center required [placeholder]="data.register.GraduationYear" type="text"  required [(ngModel)]="graduationYearRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+              <ion-label error-field no-margin *ngIf="!isGraduationYearValidRegister">{{data.register.errorCountry}}</ion-label>
+          </ion-item>
+          <ion-item text-center>
+              <!---Input field Workplace-->
+              <ion-label stacked>{{data.register.lableWorkplace}}</ion-label>
+              <ion-input text-center required [placeholder]="data.register.Workplace" type="text"  required [(ngModel)]="workplaceRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+              <ion-label error-field no-margin *ngIf="!isWorkplaceValidRegister">{{data.register.errorCountry}}</ion-label>
+          </ion-item>
+          <ion-item text-center>
+              <!---Input field Voulntry Side-->
+              <ion-label stacked>{{data.register.lableVoulntrySide}}</ion-label>
+              <ion-input text-center required [placeholder]="data.register.VoulntrySide" type="text"  required [(ngModel)]="voulntrySideRegister" [ngModelOptions]="{standalone: true}"></ion-input>
+              <ion-label error-field no-margin *ngIf="!isVoulntrySideValidRegister">{{data.register.errorCountry}}</ion-label>
+          </ion-item>
+
+          
+          <!---Register button-->
+          <button ion-button default-button text-capitalize box-shadow (click)="onEvent('onRegister')">{{data.register.register}}</button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

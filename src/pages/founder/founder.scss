@@ -1,0 +1,52 @@
+page-founder {
+    
+  .scroll-content {
+    background: theme-colors('mainColors', 'primaryBase');
+  }
+
+  ion-grid,
+  ion-row {
+    height: 100%;
+  }
+
+  [profile] {
+    img {
+      border-radius: 50%;
+      height: 180px;
+      width: 180px;
+      margin: 0 auto;
+    }
+  }
+
+  ion-card {
+    box-shadow: none;
+    border-radius: $border-radius !important;
+  }
+
+  .button-inner {
+    display: block;
+  }
+
+  .swiper-container {
+    padding-bottom: 20px;
+  }
+
+  .swiper-container-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction {
+    bottom: 0 !important;
+  }
+
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: theme-colors('mainColors', 'accent') !important;
+  }
+
+  [font-bold] {
+    clear: both;
+    display: block;
+  }
+
+  .active {
+    color: theme-colors('textColors', 'accent');
+  }
+}

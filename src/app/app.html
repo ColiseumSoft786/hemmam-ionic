@@ -1,0 +1,26 @@
+<ion-menu id="logMenu" [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>قائمة طعام</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      
+        <ion-avatar>
+            <img src="assets/logo of app.png" class="sideimg" alt="">
+          </ion-avatar>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+      <button menuClose ion-item  (click)="logout()">
+          الخروج
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

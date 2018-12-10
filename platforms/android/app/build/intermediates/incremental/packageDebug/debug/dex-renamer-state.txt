@@ -1,0 +1,4 @@
+#Sun Dec 09 19:43:25 PKT 2018
+base.0=/Users/macosx/Desktop/Ionic/hemmam_ionic_/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex

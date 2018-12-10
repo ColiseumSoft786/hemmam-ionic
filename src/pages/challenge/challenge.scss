@@ -1,0 +1,28 @@
+page-challenge {
+  .left{
+    float: right;
+  }
+ 
+    .scroll-content {
+        padding-bottom: 0 !important;
+        background: theme-colors('mainColors', 'primaryBase');
+    
+        ion-grid {
+          height: 100%;
+          padding: 0 !important;
+    
+          ion-row {
+            height: 100%;
+            [half-col] {
+              width: calc(50% - 8px);
+              display: inline-flex;
+            }
+          }
+        }
+      }
+      
+      [box-shadow] {
+        margin-top: 0px;
+        border-radius: 0px;
+      }
+}

@@ -1,0 +1,444 @@
+<!--
+  Generated template for the PartnerPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>شريك</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  
+  <ion-grid *ngIf="data != null">
+    <ion-row>
+        <div card-image>
+            <img [src]="data.image" />
+          </div>
+          <br><br>
+      <ion-col col-12 align-self-start>
+        <ion-card profile padding text-center box-shadow>
+          <ion-avatar>
+            <img [src]="data.image1" alt="">
+          </ion-avatar>
+          <ion-card-content text-center>
+            <h1 ion-text color="secondary"> جمعية رعاية الطفل الخيرية " المفرق " </h1>
+            <p ion-text color="secondary">
+                تقديم الخدمات الاجتماعية للفئات المستهدفة من ايتام وذوي اعاقة وكافة الفئات المستهدفة من المجتمع المحلي من خلال برامج متنوعة ، ورفع وبناء القدرات من خلال التأهيل والتدريب وتكوين الشراكات الفاعلة
+            </p>
+          </ion-card-content>              
+        </ion-card>
+      </ion-col> 
+      
+      <ion-col col-12 align-self-start>
+          <ion-card profile padding text-center box-shadow>
+            <ion-avatar>
+              <img [src]="data.image2" alt="">
+            </ion-avatar>
+            <ion-card-content text-center>
+              <h1 ion-text color="secondary"> جمعية سهول  المفرق لرعاية الايتأم </h1>
+              <p ion-text color="secondary">
+                  خدمة المجتمع المحلي والعمل على التنمية الاجتماعية والتمكين الاقتصادي ، وادارة المشاريع المدرة للدخل
+                  </p>
+            </ion-card-content>              
+          </ion-card>
+        </ion-col> 
+
+        <ion-col col-12 align-self-start>
+            <ion-card profile padding text-center box-shadow>
+              <ion-avatar>
+                <img [src]="data.image3" alt="">
+              </ion-avatar>
+              <ion-card-content text-center>
+                <h1 ion-text color="secondary"> مبادرون معان للتنمية والتدريب </h1>
+                <p ion-text color="secondary"> 
+                    فريق مخضرم من نشطاء محافظة معان هدفهم التنمية والتمكين في شتى المجالات عن طريق تدريب وتاهيل المورد البشري ومن ثم التشبيك مع مؤسسات المجتمع المدني من دمج لذوي الاعاقة في جميع البرامج والأنشطة    
+                </p>
+              </ion-card-content>              
+            </ion-card>
+          </ion-col> 
+
+          <ion-col col-12 align-self-start>
+              <ion-card profile padding text-center box-shadow>
+                
+                <ion-card-content text-center>
+                  <h1 ion-text color="secondary"> التواصل لتنمية الأسرة والطفولة المبكرة
+                      " المفرق "
+                       </h1>                 
+                  <p ion-text color="secondary">
+                     
+                      تختص الجمعية بالعمل الخيري والتطوعي تعتبره رافدا اساسيا من روافد تنمية الفرد والمجتمع وتسعى الى تلبية حاجاته الأساسية العاجلة والمستمرة والوصول اليه اينما كان
+                  
+                   </p>
+                </ion-card-content>              
+              </ion-card>
+            </ion-col> 
+
+        <ion-col col-12 align-self-start>
+        <ion-card profile padding text-center box-shadow>
+          <ion-avatar>
+            <img [src]="data.image4" alt="">
+          </ion-avatar>
+          <ion-card-content text-center>
+            <h1 ion-text color="secondary"> مركز جابر العثرات
+                " السلط "
+                 </h1>
+            <p ion-text color="secondary">
+                	تقديم خدمات العلاج الطبيعي والوظيفي للأفراد الملتحقين في المركز والمجتمع المحلي •
+<br>
+
+  الثقافي في المجتمع حول الاعاقة العقلية والتركيز على البرامج الوقائية بالتعاون مع الجهات ذات علاقة •
+  <br>
+  تغير وجهة نظر المجتمع نحو الافراد  ذوي الاحتياجات الخاصة •
+<br>
+        الارشاد الاسري الفردي والجماعي لأسر المعاقين عقليا بهدف توعيتهم وإرشادهم
+  
+                </p>
+          </ion-card-content>              
+        </ion-card>
+      </ion-col> 
+
+      <ion-col col-12 align-self-start>
+          <ion-card profile padding text-center box-shadow>
+            <ion-avatar>
+              <img [src]="data.image5" alt="">
+            </ion-avatar>
+            <ion-card-content text-center>
+              <h1 ion-text color="secondary"> الجمعية الأردنية للتنمية البشرية
+
+                  " جرش "
+                   </h1>
+              <p ion-text color="secondary"> 
+                  تسعى الى المساهمة الحقيقية في تنمية قدرات فئات المجتمع وتعزيز مشاركتهم في الحياة العامة والاجتماعية ليصبحوا عنصرا فعالا في تنمية المجتمع 
+                  </p>
+            </ion-card-content>              
+          </ion-card>
+        </ion-col> 
+        <ion-col col-12 align-self-start>
+            <ion-card profile padding text-center box-shadow>
+              <ion-avatar>
+                <img [src]="data.image6" alt="">
+              </ion-avatar>
+              <ion-card-content text-center>
+                <h1 ion-text color="secondary"> جمعية سوف للتنمية الاجتماعية
+                    " جرش "
+                     </h1>
+                <p ion-text color="secondary"> 
+                    تسعى الى تنمية المجتمعات المحلية وتمكين المرأة وحمايتها وتنفيذ المشاريع الانتاجية
+                    </p>
+              </ion-card-content>              
+            </ion-card>
+          </ion-col>
+          <ion-col col-12 align-self-start>
+              <ion-card profile padding text-center box-shadow>
+                <ion-avatar>
+                  <img [src]="data.image7" alt="">
+                </ion-avatar>
+                <ion-card-content text-center>
+                  <h1 ion-text color="secondary"> جمعية خولة بنت الأزور لتمكين المرأة
+                      " الزرقاء "
+                       </h1>
+                  <p ion-text color="secondary"> 
+                      تمكين الأفراد محليا في قضايا التنمية من خلال تقديم برامج تنموية تسعى الى تحسين ورفع مستوى الأسرة وتطوير قدراتهم الاقتصادية والمهنية 
+                      </p>
+                </ion-card-content>              
+              </ion-card>
+            </ion-col>
+            
+            <ion-col col-12 align-self-start>
+                <ion-card profile padding text-center box-shadow>
+                  <ion-avatar>
+                    <img [src]="data.image8" alt="">
+                  </ion-avatar>
+                  <ion-card-content text-center>
+                    <h1 ion-text color="secondary"> جمعية الشمال للتنمية المستدامة " اربد  " </h1>
+                    <p ion-text color="secondary"> 
+                      
+                        تمكين النساء والفتيات والتركيز على التنمية المستدامة
+                        </p>
+                  </ion-card-content>              
+                </ion-card>
+              </ion-col>
+
+              <ion-col col-12 align-self-start>
+                  <ion-card profile padding text-center box-shadow>
+                    <ion-avatar>
+                      <img [src]="data.image9" alt="">
+                    </ion-avatar>
+                    <ion-card-content text-center>
+                      <h1 ion-text color="secondary">جمعية مستقبل ابنائنا الثقافية " معان "</h1>
+                      <p ion-text color="secondary">
+                        
+                          تهدف لعمل مبادرات ونشاطات ثقافية لجميع الفئات العمرية بهدف تطوير مهاراتهم
+                          </p>
+                    </ion-card-content>              
+                  </ion-card>
+                </ion-col>
+
+                <ion-col col-12 align-self-start>
+                    <ion-card profile padding text-center box-shadow>
+                      <ion-avatar>
+                        <img [src]="data.image10" alt="">
+                      </ion-avatar>
+                      <ion-card-content text-center>
+                        <h1 ion-text color="secondary"> جمعية النور المبين للتنمية الاجتماعية " جرش " </h1>
+                        <p ion-text color="secondary"> 
+                            المساهمة الى انجاز كل ما من شأنه المساهمة في تحقيق التنمية بالمنطقة في جميع المجالات من خلال المشاريع التنموية
+                            </p>
+                      </ion-card-content>              
+                    </ion-card>
+                  </ion-col><ion-col col-12 align-self-start>
+                      <ion-card profile padding text-center box-shadow>
+                        <ion-avatar>
+                          <img [src]="data.image11" alt="">
+                        </ion-avatar>
+                        <ion-card-content text-center>
+                          <h1 ion-text color="secondary">جمعية شابات الوطن الخيرية
+                              " عجلون"
+                              </h1>
+                          <p ion-text color="secondary"> 
+                            
+                              جمعية  تقدم المساعدات المادية والعينية و تساهم في ادارة مشاريع مدرة للدخل
+                              </p>
+                        </ion-card-content>              
+                      </ion-card>
+                    </ion-col><ion-col col-12 align-self-start>
+                        <ion-card profile padding text-center box-shadow>
+                          <ion-avatar>
+                            <img [src]="data.image12" alt="">
+                          </ion-avatar>
+                          <ion-card-content text-center>
+                            <h1 ion-text color="secondary">جمعية الأصايل للابداع والفن التشكيلي
+                                " المفرق "
+                                </h1>
+                            <p ion-text color="secondary"> 
+                                تمكين الشباب والمرأة
+                                </p>
+                          </ion-card-content>              
+                        </ion-card>
+                      </ion-col><ion-col col-12 align-self-start>
+                          <ion-card profile padding text-center box-shadow>
+                            <ion-avatar>
+                              <img [src]="data.image13" alt="">
+                            </ion-avatar>
+                            <ion-card-content text-center>
+                              <h1 ion-text color="secondary">منتدى العقبة للابداع الثقافي والشبابي</h1>
+                              <p ion-text color="secondary"> 
+                                  تسعى الى التغيير الايجابي وخلق المبادرات والبرامج النوعية ليكون مظلة للمبدعين والشباب الاردني
+                                  </p>
+                            </ion-card-content>              
+                          </ion-card>
+                        </ion-col><ion-col col-12 align-self-start>
+                            <ion-card profile padding text-center box-shadow>
+                              <ion-avatar>
+                                <img [src]="data.image14" alt="">
+                              </ion-avatar>
+                              <ion-card-content text-center>
+                                <h1 ion-text color="secondary">مركز شباب الغد لتنمية المجتمع المحلي
+                                    " العقبة "
+                                    </h1>
+                                <p ion-text color="secondary"> 
+                                    المشاركة في تنمية قدرات الشباب الاجتماعية في الاردن وخاصة المناطق والفئات المهمشة ضمن المعايير الدولية لنشر الوعي على اساس المساواة والعدل وسيادة القانون
+                                    </p>
+                              </ion-card-content>              
+                            </ion-card>
+                          </ion-col><ion-col col-12 align-self-start>
+                              <ion-card profile padding text-center box-shadow>
+                                <ion-avatar>
+                                  <img [src]="data.image15" alt="">
+                                </ion-avatar>
+                                <ion-card-content text-center>
+                                  <h1 ion-text color="secondary">جمعية أم اللولو التعاونية
+                                      " عجلون "
+                                      </h1>
+                                  <p ion-text color="secondary"> 
+                                      تنمية المجتمع والتوعية والتدريب وتقديم القروض الدوارة وتمكين المرأة اقتصاديا واجتماعيا
+                                   </p>
+                             </ion-card-content>              
+                           </ion-card>
+                         </ion-col><ion-col col-12 align-self-start>
+                             <ion-card profile padding text-center box-shadow>
+                               <ion-avatar>
+                                 <img [src]="data.image16" alt="">
+                               </ion-avatar>
+                               <ion-card-content text-center>
+                                 <h1 ion-text color="secondary">جمعية المستقبل للتعليم والتنمية الخيرية
+                                    " معان "
+                                    </h1>
+                                 <p ion-text color="secondary"> 
+                                   
+تهتم بمساعدة طلبة العلم وتهيئة فرص النجاح لهم في جميع مراحل التعليم وتاهيل قيادات مجتمعية منتجة
+
+                                     </p>
+                               </ion-card-content>              
+                             </ion-card>
+                           </ion-col><ion-col col-12 align-self-start>
+                               <ion-card profile padding text-center box-shadow>
+                                 <ion-avatar>
+                                   <img [src]="data.image17" alt="">
+                                 </ion-avatar>
+                                 <ion-card-content text-center>
+                                   <h1 ion-text color="secondary">جمعية الشباب للتنمية الذاتية –" الزرقاء "</h1>
+                                   <p ion-text color="secondary"> 
+                                      اقامة مشاريع انتاجية تهدف الى المساهمة في الحد من البطالة من خلال التدريب ورفع كفاءة الشباب لتهيئتهم لسوق العمل وتعزيز قيم العمل الاجتماعي والتطوعي
+                                       </p>
+                                 </ion-card-content>              
+                               </ion-card>
+                             </ion-col><ion-col col-12 align-self-start>
+                                 <ion-card profile padding text-center box-shadow>
+                                   <ion-avatar>
+                                     <img [src]="data.image18" alt="">
+                                   </ion-avatar>
+                                   <ion-card-content text-center>
+                                     <h1 ion-text color="secondary">جمعية الهمة والابداع للفنون " الزرقاء "</h1>
+                                     <p ion-text color="secondary"> 
+                                        تمكين قادة الغد من الحرف والفنون الابداعية ضمن خطط ومناهج متطورة لمواكبة حاجات العصر
+                                         </p>
+                                   </ion-card-content>              
+                                 </ion-card>
+                               </ion-col><ion-col col-12 align-self-start>
+                                   <ion-card profile padding text-center box-shadow>
+                                     <ion-avatar>
+                                       <img [src]="data.image19" alt="">
+                                     </ion-avatar>
+                                     <ion-card-content text-center>
+                                       <h1 ion-text color="secondary">جمعية تحفيز للريادة والتطوير " اربد "</h1>
+                                       <p ion-text color="secondary"> 
+                                          تطوير وبناء قدرات المجتمع المحلي وتحقيق تنمية مجتمعية مستدامة وخلق فرص تطوعية للشباب بطرق ابداعية ومبتكرة
+                                           </p>
+                                     </ion-card-content>              
+                                   </ion-card>
+                                 </ion-col><ion-col col-12 align-self-start>
+                                     <ion-card profile padding text-center box-shadow>
+                                       <ion-avatar>
+                                         <img [src]="data.image20" alt="">
+                                       </ion-avatar>
+                                       <ion-card-content text-center>
+                                         <h1 ion-text color="secondary">مركز مساواة لتنمية المجتمع المدني
+                                            " المفرق "
+                                            </h1>
+                                         <p ion-text color="secondary"> 
+                                           
+                                          إقامة المهرجانات الثقافية والتوعوية والدورات التدريبية الثقافية.
+                                          <br>
+                                            إقامة المشاريع لزيادة الوعي في مجال حقوق المرأة والطفل والشباب والمساواة بين الجنسين.
+                                            
+                                             </p>
+                                       </ion-card-content>              
+                                     </ion-card>
+                                   </ion-col><ion-col col-12 align-self-start>
+                                       <ion-card profile padding text-center box-shadow>
+                                         <ion-avatar>
+                                           <img [src]="data.image21" alt="">
+                                         </ion-avatar>
+                                         <ion-card-content text-center>
+                                           <h1 ion-text color="secondary">جمعية رؤيا الخيرية
+                                              " العقبة "
+                                              </h1>
+                                           <p ion-text color="secondary"> 
+                                              حماية المجتمع من العنف الأسري من خلال رفع الوعي الثقافي، والاجتماعي لشرائح المجتمع التي تساعد أيضاً في الحد من ظاهرة العنف الأسري.وتقيم المساعدات العينية والنقدية للسجناء، وضحايا العنف الأسري، وكافة المواطنين.
+                                               </p>
+                                         </ion-card-content>              
+                                       </ion-card>
+                                     </ion-col>
+
+                                     <ion-col col-12 align-self-start>
+                                        <ion-card profile padding text-center box-shadow>
+                                          <ion-avatar>
+                                            <img [src]="data.image22" alt="">
+                                          </ion-avatar>
+                                          <ion-card-content text-center>
+                                            <h1 ion-text color="secondary">مركز نماء للتنمية وبناء القدرات
+                                                " السلط "
+                                                </h1>
+                                            <p ion-text color="secondary"> 
+                                                نسعى لمجتمع قوي محصن ضد التطرف والاهاب وضمن سيادة مبادئ حقوق الانسان ، وبناء القدرات لهم وتعزيز التنمية المجتمعية المستدامة.
+                                                </p>
+                                          </ion-card-content>              
+                                        </ion-card>
+                                      </ion-col>
+
+                                      <ion-col col-12 align-self-start>
+                                          <ion-card profile padding text-center box-shadow>
+                                            <ion-avatar>
+                                              <img [src]="data.image23" alt="">
+                                            </ion-avatar>
+                                            <ion-card-content text-center>
+                                              <h1 ion-text color="secondary">جمعية شقيرا للتنمية الاجتماعية
+                                                  " الكرك "
+                                              </h1>
+                                              <p ion-text color="secondary">
+                                                  تنمية المجتمع المحلي.
+                                                  و فتح مشاريع تنموية.
+                                                  و مساعدة ذوي الإحتيجات الخاصة.
+                                                 و تدريب وتطوير الشباب.
+                                                 
+                                                  </p>
+                                            </ion-card-content>              
+                                          </ion-card>
+                                        </ion-col><ion-col col-12 align-self-start>
+                                            <ion-card profile padding text-center box-shadow>
+                                              <ion-avatar>
+                                                <img [src]="data.image24" alt="">
+                                              </ion-avatar>
+                                              <ion-card-content text-center>
+                                                <h1 ion-text color="secondary">جمعية عي لذوي الاحتياجات الخاصة الخيرية
+                                                    " الكرك "
+                                                    </h1>
+                                                <p ion-text color="secondary"> 
+                                                    تقديم الخدمات المادية و الانسانية والصحية والتنموية الى الاشخاص ذوي الاعاقة
+                                                    </p>
+                                              </ion-card-content>              
+                                            </ion-card>
+                                          </ion-col><ion-col col-12 align-self-start>
+                                              <ion-card profile padding text-center box-shadow>
+                                                <ion-avatar>
+                                                  <img [src]="data.image25" alt="">
+                                                </ion-avatar>
+                                                <ion-card-content text-center>
+                                                  <h1 ion-text color="secondary">مركز وسطاء التغيير للتنمية المستدامة
+                                                      " عجلون "
+                                                      </h1>
+                                                  <p ion-text color="secondary"> 
+                                                      تعزيز دور المجتمعات وخصوصا الشباب والمرأة كوسطاء في إحداث التغيير في كافة المجالات الاقتصادية والاجتماعية و الثقافية ‏واستثمار طاقاتهم وقدراتهم في تحقيق أهداف التنمية المستدامة
+                                                      </p>
+                                                </ion-card-content>              
+                                              </ion-card>
+                                            </ion-col>
+                                            <ion-col col-12 align-self-start>
+                                                <ion-card profile padding text-center box-shadow>
+                                                  <ion-avatar>
+                                                    <img [src]="data.image26" alt="">
+                                                  </ion-avatar>
+                                                  <ion-card-content text-center>
+                                                    <h1 ion-text color="secondary">مركز افاق
+                                                        الريادة للتنمية والتدريب
+                                                        " المفرق "
+                                                        </h1>
+                                                    <p ion-text color="secondary"> 
+                                                        يعمل على زيادة الوعي في مجال حقوق المرأة وتمكين الشباب والمساواة بين الجنسين وتعزيز مفهوم الديمقراطية والحاكمية الرشيدة ونشر ثقافة الحوار والسلام وتقبل الآخر، بالإضافة إلى تعزيز دور مؤسسات المجتمع المدني .
+                                                        </p>
+                                                  </ion-card-content>              
+                                                </ion-card>
+                                              </ion-col>
+                                              <ion-col col-12 align-self-start>
+                                                  <ion-card profile padding text-center box-shadow>
+                                                    
+                                                    <ion-card-content text-center>
+                                                      <h1 ion-text color="secondary">
+                                                        
+                                              جمعية سيدات قريفلا الخيرية " الكرك "  
+                                                      </h1>
+                                                    </ion-card-content>              
+                                                  </ion-card>
+                                                </ion-col>
+                                             
+                                               
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

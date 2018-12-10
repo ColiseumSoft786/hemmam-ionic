@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar><button ion-button menuToggle>
+      <ion-icon name="menu"> </ion-icon>
+    </button>
+    <ion-title>لوحة القيادة</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+    <ion-grid *ngIf="data != null">
+        <ion-col col-12>
+            <ion-card padding box-shadow>
+            <ion-avatar>
+              <img src="{{ data.profile }}" alt="">
+             
+            </ion-avatar>
+            <ion-card-content text-center>
+                <ion-badge cs color="accent" (click)="changephoto()"><ion-icon in name="create"></ion-icon></ion-badge>
+              <h1>{{data.name}}</h1>
+              <p>{{data.email}} : البريد الإلكتروني </p>
+              <!-- <p *ngIf="data.level == null" >مستوى :  </p>  -->
+              <p *ngIf="data.test != 1 ">  مستوى : أي مستوى </p> 
+              <p *ngIf="data.test == 1 ">مستوى : {{data.level.name}}</p> 
+            </ion-card-content>
+            <div style="width:100%; text-align:center;">
+            <button ion-button  outline (click)="gotochallenge()">التحديات</button>
+            <button ion-button  outline (click)="gotohistory()" >التاريخ</button>
+          </div> 
+          </ion-card>
+        </ion-col> 
+        
+        
+        <br>
+        <ion-grid >
+        <div style="width:100%; text-align:center;">   
+          <button ion-button style="width:45%; " outline (click)="gotofounder()" >مؤسس</button>   
+          <button ion-button style="width:45%; " outline (click)="gotohicertificate()">شهادتي</button>      
+          <button ion-button  outline (click)="gotosponser()">كفيل</button>
+          <button ion-button  outline (click)="gotopartner()">شريك</button>
+          <button ion-button  outline (click)="gotolibrary()">مكتبة</button>            
+          </div>
+          </ion-grid>
+            
+       
+        
+
+      </ion-grid>
+</ion-content>

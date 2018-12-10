@@ -1,0 +1,101 @@
+page-home {
+  .scroll-content {
+    padding-bottom: 0 !important;
+    [drop]{
+      width: 80%;
+      position: relative;
+      left: 10%;
+    }
+    ion-grid {
+      height: 100%;
+
+      ion-row {
+        height: 100%;
+        // Settings Logo
+        img {
+              height: 135px;
+              margin-bottom: 0px;
+              display: block;
+              margin-left: 29% !important;
+        }
+        // Settings Form
+        form {
+          box-shadow: 0 3px 17px rgba(0, 0, 0, 0.3);
+          background: theme-colors('mainColors', 'primaryBase');
+          padding: 16px !important;
+          border-radius: 14px;
+
+          ion-item {
+            padding-left: 0 !important;
+            padding-bottom: 15px !important;
+
+            [error-field] {
+              margin: 0 !important;
+              position: absolute !important;
+              bottom: 0 !important;
+              right: 5px !important;
+              font-size: $h6-font-size;
+            }
+
+            .item-inner {
+              border-bottom: none !important;
+              box-shadow: none !important;
+              padding-right: 0 !important;
+            }
+
+            ion-input {
+              background: theme-colors('mainColors', 'primaryBase') !important;
+              box-shadow: 0 6px 10px rgba(0, 0, 0, 0.18) !important;
+              margin: 5px 10px 15px 10px !important;
+              padding: 5px 10px !important;
+              width: calc(100% - 9px);
+              
+              z-index: 999;
+
+              .input-cover {
+                display: none;
+              }
+            }
+
+            ion-label {
+              text-align: left;
+            }
+          }
+
+          [stacked] {
+            font-size: $text-font-size !important;
+            text-align: center;
+          }
+          // Settings Button
+          [button-form] {
+            margin-bottom: 10px;
+            margin-top: 0px;
+            display: flex;
+
+            [default-button] {
+              width: calc(50% - 5px)!important;
+            }
+
+            button:nth-child(1) {
+              color: theme-colors('textColors', 'accent') !important;
+              background: theme-colors('mainColors', 'primaryBase') !important;
+              margin-right: 10px !important;
+            }
+          }
+
+          [login-title] {
+            color: color($loginPage, login-title-logo-1);
+          }
+
+          [segment-block] {
+            margin: 0 0 10px;
+          }
+          // Register Title
+          [register-title] {
+            color: color($register, register-logo-title);
+          }
+        }
+      }
+    }
+  }
+}

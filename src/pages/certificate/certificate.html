@@ -1,0 +1,38 @@
+<!--
+  Generated template for the CertificatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>شهادة</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid no-padding *ngIf="data != null">
+    <ion-row>
+      <ion-col col-12>
+        <!-- Header List Big Image -->
+        <ion-list-header box-shadow no-margin no-lines>
+          <h1 header-title *ngIf="data.request == 1 " align="right"> آخر طلب للحصول على الشهادة معلق </h1>
+          <h1 header-title *ngIf="data.request == 10 " align="right"> تم إرسال شهادتك ، يرجى التحقق من E-mail الخاص بك </h1>
+          <h1 header-title *ngIf="data.request == 0 " align="right"> يمكنك الحصول على الشهادة </h1>
+        </ion-list-header>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-col col-12  align-self-end *ngIf="data.request == 0 ">
+    <button ion-button outline block (click)="certificaterequest()">
+      طلب الشهادة
+    </button>
+  </ion-col>
+
+
+
+</ion-content>

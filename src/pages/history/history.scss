@@ -1,0 +1,70 @@
+page-history {
+
+    ion-content {
+        background: theme-colors('mainColors', 'primaryBase') !important;
+        .status{
+          float:left; margin: 10px; border: 1px solid #53cbd8; border-radius: 5px; padding: 1px 15px 1px 15px; 
+        }
+        [ion-affix] {
+          left: 0 !important;
+          right: 0 !important;
+          width: 100% !important;
+          border-bottom: $item-divider-small;
+          border-top: none !important;
+          position: relative;
+          margin: 0;
+    
+          .label-ios,
+          .label-md {
+            margin: 0;
+          }
+        }
+    
+        [header-title] {
+          color: color($stickyListHeader, sticky-list-header-title-basic) !important;
+          font-size: $h1-font-size !important;
+          font-weight: 600 !important;
+        }
+    
+        [card-title] {
+          color: color($stickyListHeader, sticky-list-header-subtitle-basic) !important;
+          font-size: $h3-font-size !important;
+          font-weight: 400 !important;
+        }
+    
+        [card-subtitle] {
+          color: color($stickyListHeader, sticky-list-header-description-basic) !important;
+          font-size: $text-font-size !important;
+        }
+    
+        [item-title] {
+          font-size: $h3-font-size !important;
+          font-weight: 400 !important;
+        }
+    
+        ion-card {
+          width: 100% !important;
+          box-shadow: none !important;
+    
+          [button-action-shit] {
+            color: color($buttonActionShit, color-primary) !important;
+          }
+    
+          ion-avatar {
+            min-width: 48px !important;
+            min-height: 48px !important;
+            z-index: 1 !important;
+            filter: none !important;
+    
+            img {
+              width: 48px !important;
+              height: 48px !important;
+            }
+          }
+    
+          ion-card-content {
+            padding-top: 28px !important;
+          }
+        }
+      }
+}

@@ -1,12 +1,7 @@
 page-home {
-  ion-segment-button{
-   
-  }
-  .alert-radio-group button:nth-child(1) .alert-radio-label:before {
-    content: url(/assets/images/background/39.jpg);
-}
-
-
+ ion-list ion-item{
+  float: left;
+ }
   .logo_div{
     width: 100%;
   }
@@ -15,7 +10,7 @@ page-home {
   }
   *{
     color: #5881c2 !important;
-    font-size: 16px !important;
+    font-size: 17px !important;
   }
   .scroll-content {
     padding-bottom: 0 !important;
@@ -23,6 +18,11 @@ page-home {
       width: 80%;
       position: relative;
       left: 10%;
+
+      // .imoji{
+      //   width: 5px !important;
+      //   height: 5px !important;
+      // }
     }
     ion-grid {
       height: 100%;

@@ -90,14 +90,21 @@
                 <ion-label error-field no-margin *ngIf="!isMobileValidRegister">{{data.register.errorPassword}}</ion-label>
               </ion-item>
 
-              <ion-item text-center drop>
-                <ion-label>جنس</ion-label>
-                <ion-select [(ngModel)]="genderRegister" [ngModelOptions]="{standalone: true}">
-                    <ion-option value="الذكر">الذكر</ion-option>
-                    <ion-option value="إناثا"> إناثا</ion-option>
-                </ion-select>
+              <ion-list radio-group  [(ngModel)]="genderRegister" [ngModelOptions]="{standalone: true}"> 
+              <ion-item  drop col-4 >
+                <ion-label>الذكر</ion-label><img item-start src="assets/icon/imoji_boy.png" style="width:20px; height:20px;" >
+                <ion-radio value="Male" ></ion-radio>                              
               </ion-item>
-
+              <ion-item  drop col-2 ></ion-item>
+              <ion-item  drop col-4>
+              <ion-label>إناثا</ion-label><img item-start src="assets/icon/emoji_girl.png" style="width:20px; height:20px;" >
+                <ion-radio value="Female" ></ion-radio>  
+              </ion-item>
+            </ion-list>
+              <!-- <ion-select  [(ngModel)]="genderRegister" [ngModelOptions]="{standalone: true}">
+                <ion-option value="الذكر">  الذكر</ion-option>
+                <ion-option value="إناثا"> إناثا</ion-option>
+            </ion-select> -->
               <!-- <ion-item text-center> -->
                   <!---Input field BirthDay-->
                   <!-- <ion-label stacked>{{data.register.lableMobile}}</ion-label>
@@ -105,12 +112,265 @@
                   <ion-label error-field no-margin *ngIf="!isPasswordValidRegister">{{data.register.errorPassword}}</ion-label>
                 </ion-item> -->
 
-                <ion-item text-center>
-                    <!---Input field Nationality-->
+                <!-- <ion-item text-center>                    
                     <ion-label stacked>{{data.register.lableNationality}}</ion-label>
                     <ion-input text-center required [placeholder]="data.register.Nationality" type="text" [(ngModel)]="nationalityRegister" [ngModelOptions]="{standalone: true}"></ion-input>
                     <ion-label error-field no-margin *ngIf="!isNationalityValidRegister">{{data.register.errorCountry}}</ion-label>
+                  </ion-item> -->
+
+                  <ion-item text-center drop>
+                      <ion-label>اختر بلدك</ion-label>
+                      <ion-select [(ngModel)]="nationalityRegister" [ngModelOptions]="{standalone: true}">
+                          <ion-option value="AW">آروبا</ion-option>
+                              <ion-option value="AZ">أذربيجان</ion-option>
+                              <ion-option value="AM">أرمينيا</ion-option>
+                              <ion-option value="ES">أسبانيا</ion-option>
+                              <ion-option value="AU">أستراليا</ion-option>
+                              <ion-option value="AF">أفغانستان</ion-option>
+                              <ion-option value="AL">ألبانيا</ion-option>
+                              <ion-option value="DE">ألمانيا</ion-option>
+                              <ion-option value="AG">أنتيجوا وبربودا</ion-option>
+                              <ion-option value="AO">أنجولا</ion-option>
+                              <ion-option value="AI">أنجويلا</ion-option>
+                              <ion-option value="AD">أندورا</ion-option>
+                              <ion-option value="UY">أورجواي</ion-option>
+                              <ion-option value="UZ">أوزبكستان</ion-option>
+                              <ion-option value="UG">أوغندا</ion-option>
+                              <ion-option value="UA">أوكرانيا</ion-option>
+                              <ion-option value="IE">أيرلندا</ion-option>
+                              <ion-option value="IS">أيسلندا</ion-option>
+                              <ion-option value="ET">اثيوبيا</ion-option>
+                              <ion-option value="ER">اريتريا</ion-option>
+                              <ion-option value="EE">استونيا</ion-option>
+                              <ion-option value="IL">اسرائيل</ion-option>
+                              <ion-option value="AR">الأرجنتين</ion-option>
+                              <ion-option value="JO">الأردن</ion-option>
+                              <ion-option value="EC">الاكوادور</ion-option>
+                              <ion-option value="AE">الامارات العربية المتحدة</ion-option>
+                              <ion-option value="BS">الباهاما</ion-option>
+                              <ion-option value="BH">البحرين</ion-option>
+                              <ion-option value="BR">البرازيل</ion-option>
+                              <ion-option value="PT">البرتغال</ion-option>
+                              <ion-option value="BA">البوسنة والهرسك</ion-option>
+                              <ion-option value="GA">الجابون</ion-option>
+                              <ion-option value="ME">الجبل الأسود</ion-option>
+                              <ion-option value="DZ">الجزائر</ion-option>
+                              <ion-option value="DK">الدانمرك</ion-option>
+                              <ion-option value="CV">الرأس الأخضر</ion-option>
+                              <ion-option value="SV">السلفادور</ion-option>
+                              <ion-option value="SN">السنغال</ion-option>
+                              <ion-option value="SD">السودان</ion-option>
+                              <ion-option value="SE">السويد</ion-option>
+                              <ion-option value="EH">الصحراء الغربية</ion-option>
+                              <ion-option value="SO">الصومال</ion-option>
+                              <ion-option value="CN">الصين</ion-option>
+                              <ion-option value="IQ">العراق</ion-option>
+                              <ion-option value="VA">الفاتيكان</ion-option>
+                              <ion-option value="PH">الفيلبين</ion-option>
+                              <ion-option value="AQ">القطب الجنوبي</ion-option>
+                              <ion-option value="CM">الكاميرون</ion-option>
+                              <ion-option value="CG">الكونغو - برازافيل</ion-option>
+                              <ion-option value="KW">الكويت</ion-option>
+                              <ion-option value="HU">المجر</ion-option>
+                              <ion-option value="IO">المحيط الهندي البريطاني</ion-option>
+                              <ion-option value="MA">المغرب</ion-option>
+                              <ion-option value="TF">المقاطعات الجنوبية الفرنسية</ion-option>
+                              <ion-option value="MX">المكسيك</ion-option>
+                              <ion-option value="SA">المملكة العربية السعودية</ion-option>
+                              <ion-option value="GB">المملكة المتحدة</ion-option>
+                              <ion-option value="NO">النرويج</ion-option>
+                              <ion-option value="AT">النمسا</ion-option>
+                              <ion-option value="NE">النيجر</ion-option>
+                              <ion-option value="IN">الهند</ion-option>
+                              <ion-option value="US">الولايات المتحدة الأمريكية</ion-option>
+                              <ion-option value="JP">اليابان</ion-option>
+                              <ion-option value="YE">اليمن</ion-option>
+                              <ion-option value="GR">اليونان</ion-option>
+                              <ion-option value="ID">اندونيسيا</ion-option>
+                              <ion-option value="IR">ايران</ion-option>
+                              <ion-option value="IT">ايطاليا</ion-option>
+                              <ion-option value="PG">بابوا غينيا الجديدة</ion-option>
+                              <ion-option value="PY">باراجواي</ion-option>
+                              <ion-option value="PK">باكستان</ion-option>
+                              <ion-option value="PW">بالاو</ion-option>
+                              <ion-option value="BW">بتسوانا</ion-option>
+                              <ion-option value="PN">بتكايرن</ion-option>
+                              <ion-option value="BB">بربادوس</ion-option>
+                              <ion-option value="BM">برمودا</ion-option>
+                              <ion-option value="BN">بروناي</ion-option>
+                              <ion-option value="BE">بلجيكا</ion-option>
+                              <ion-option value="BG">بلغاريا</ion-option>
+                              <ion-option value="BZ">بليز</ion-option>
+                              <ion-option value="BD">بنجلاديش</ion-option>
+                              <ion-option value="PA">بنما</ion-option>
+                              <ion-option value="BJ">بنين</ion-option>
+                              <ion-option value="BT">بوتان</ion-option>
+                              <ion-option value="PR">بورتوريكو</ion-option>
+                              <ion-option value="BF">بوركينا فاسو</ion-option>
+                              <ion-option value="BI">بوروندي</ion-option>
+                              <ion-option value="PL">بولندا</ion-option>
+                              <ion-option value="BO">بوليفيا</ion-option>
+                              <ion-option value="PF">بولينيزيا الفرنسية</ion-option>
+                              <ion-option value="PE">بيرو</ion-option>
+                              <ion-option value="TZ">تانزانيا</ion-option>
+                              <ion-option value="TH">تايلند</ion-option>
+                              <ion-option value="TW">تايوان</ion-option>
+                              <ion-option value="TM">تركمانستان</ion-option>
+                              <ion-option value="TR">تركيا</ion-option>
+                              <ion-option value="TT">ترينيداد وتوباغو</ion-option>
+                              <ion-option value="TD">تشاد</ion-option>
+                              <ion-option value="TG">توجو</ion-option>
+                              <ion-option value="TV">توفالو</ion-option>
+                              <ion-option value="TK">توكيلو</ion-option>
+                              <ion-option value="TO">تونجا</ion-option>
+                              <ion-option value="TN">تونس</ion-option>
+                              <ion-option value="TL">تيمور الشرقية</ion-option>
+                              <ion-option value="JM">جامايكا</ion-option>
+                              <ion-option value="GI">جبل طارق</ion-option>
+                              <ion-option value="GD">جرينادا</ion-option>
+                              <ion-option value="GL">جرينلاند</ion-option>
+                              <ion-option value="AX">جزر أولان</ion-option>
+                              <ion-option value="AN">جزر الأنتيل الهولندية</ion-option>
+                              <ion-option value="TC">جزر الترك وجايكوس</ion-option>
+                              <ion-option value="KM">جزر القمر</ion-option>
+                              <ion-option value="KY">جزر الكايمن</ion-option>
+                              <ion-option value="MH">جزر المارشال</ion-option>
+                              <ion-option value="MV">جزر الملديف</ion-option>
+                              <ion-option value="UM">جزر الولايات المتحدة البعيدة الصغيرة</ion-option>
+                              <ion-option value="SB">جزر سليمان</ion-option>
+                              <ion-option value="FO">جزر فارو</ion-option>
+                              <ion-option value="VI">جزر فرجين الأمريكية</ion-option>
+                              <ion-option value="VG">جزر فرجين البريطانية</ion-option>
+                              <ion-option value="FK">جزر فوكلاند</ion-option>
+                              <ion-option value="CK">جزر كوك</ion-option>
+                              <ion-option value="CC">جزر كوكوس</ion-option>
+                              <ion-option value="MP">جزر ماريانا الشمالية</ion-option>
+                              <ion-option value="WF">جزر والس وفوتونا</ion-option>
+                              <ion-option value="CX">جزيرة الكريسماس</ion-option>
+                              <ion-option value="BV">جزيرة بوفيه</ion-option>
+                              <ion-option value="IM">جزيرة مان</ion-option>
+                              <ion-option value="NF">جزيرة نورفوك</ion-option>
+                              <ion-option value="HM">جزيرة هيرد وماكدونالد</ion-option>
+                              <ion-option value="CF">جمهورية افريقيا الوسطى</ion-option>
+                              <ion-option value="CZ">جمهورية التشيك</ion-option>
+                              <ion-option value="DO">جمهورية الدومينيك</ion-option>
+                              <ion-option value="CD">جمهورية الكونغو الديمقراطية</ion-option>
+                              <ion-option value="ZA">جمهورية جنوب افريقيا</ion-option>
+                              <ion-option value="GT">جواتيمالا</ion-option>
+                              <ion-option value="GP">جوادلوب</ion-option>
+                              <ion-option value="GU">جوام</ion-option>
+                              <ion-option value="GE">جورجيا</ion-option>
+                              <ion-option value="GS">جورجيا الجنوبية وجزر ساندويتش الجنوبية</ion-option>
+                              <ion-option value="DJ">جيبوتي</ion-option>
+                              <ion-option value="JE">جيرسي</ion-option>
+                              <ion-option value="DM">دومينيكا</ion-option>
+                              <ion-option value="RW">رواندا</ion-option>
+                              <ion-option value="RU">روسيا</ion-option>
+                              <ion-option value="BY">روسيا البيضاء</ion-option>
+                              <ion-option value="RO">رومانيا</ion-option>
+                              <ion-option value="RE">روينيون</ion-option>
+                              <ion-option value="ZM">زامبيا</ion-option>
+                              <ion-option value="ZW">زيمبابوي</ion-option>
+                              <ion-option value="CI">ساحل العاج</ion-option>
+                              <ion-option value="WS">ساموا</ion-option>
+                              <ion-option value="AS">ساموا الأمريكية</ion-option>
+                              <ion-option value="SM">سان مارينو</ion-option>
+                              <ion-option value="PM">سانت بيير وميكولون</ion-option>
+                              <ion-option value="VC">سانت فنسنت وغرنادين</ion-option>
+                              <ion-option value="KN">سانت كيتس ونيفيس</ion-option>
+                              <ion-option value="LC">سانت لوسيا</ion-option>
+                              <ion-option value="MF">سانت مارتين</ion-option>
+                              <ion-option value="SH">سانت هيلنا</ion-option>
+                              <ion-option value="ST">ساو تومي وبرينسيبي</ion-option>
+                              <ion-option value="LK">سريلانكا</ion-option>
+                              <ion-option value="SJ">سفالبارد وجان مايان</ion-option>
+                              <ion-option value="SK">سلوفاكيا</ion-option>
+                              <ion-option value="SI">سلوفينيا</ion-option>
+                              <ion-option value="SG">سنغافورة</ion-option>
+                              <ion-option value="SZ">سوازيلاند</ion-option>
+                              <ion-option value="SY">سوريا</ion-option>
+                              <ion-option value="SR">سورينام</ion-option>
+                              <ion-option value="CH">سويسرا</ion-option>
+                              <ion-option value="SL">سيراليون</ion-option>
+                              <ion-option value="SC">سيشل</ion-option>
+                              <ion-option value="CL">شيلي</ion-option>
+                              <ion-option value="RS">صربيا</ion-option>
+                              <ion-option value="CS">صربيا والجبل الأسود</ion-option>
+                              <ion-option value="TJ">طاجكستان</ion-option>
+                              <ion-option value="OM">عمان</ion-option>
+                              <ion-option value="GM">غامبيا</ion-option>
+                              <ion-option value="GH">غانا</ion-option>
+                              <ion-option value="GF">غويانا</ion-option>
+                              <ion-option value="GY">غيانا</ion-option>
+                              <ion-option value="GN">غينيا</ion-option>
+                              <ion-option value="GQ">غينيا الاستوائية</ion-option>
+                              <ion-option value="GW">غينيا بيساو</ion-option>
+                              <ion-option value="VU">فانواتو</ion-option>
+                              <ion-option value="FR">فرنسا</ion-option>
+                              <ion-option value="PS">فلسطين</ion-option>
+                              <ion-option value="VE">فنزويلا</ion-option>
+                              <ion-option value="FI">فنلندا</ion-option>
+                              <ion-option value="VN">فيتنام</ion-option>
+                              <ion-option value="FJ">فيجي</ion-option>
+                              <ion-option value="CY">قبرص</ion-option>
+                              <ion-option value="KG">قرغيزستان</ion-option>
+                              <ion-option value="QA">قطر</ion-option>
+                              <ion-option value="KZ">كازاخستان</ion-option>
+                              <ion-option value="NC">كاليدونيا الجديدة</ion-option>
+                              <ion-option value="HR">كرواتيا</ion-option>
+                              <ion-option value="KH">كمبوديا</ion-option>
+                              <ion-option value="CA">كندا</ion-option>
+                              <ion-option value="CU">كوبا</ion-option>
+                              <ion-option value="KR">كوريا الجنوبية</ion-option>
+                              <ion-option value="KP">كوريا الشمالية</ion-option>
+                              <ion-option value="CR">كوستاريكا</ion-option>
+                              <ion-option value="CO">كولومبيا</ion-option>
+                              <ion-option value="KI">كيريباتي</ion-option>
+                              <ion-option value="KE">كينيا</ion-option>
+                              <ion-option value="LV">لاتفيا</ion-option>
+                              <ion-option value="LA">لاوس</ion-option>
+                              <ion-option value="LB">لبنان</ion-option>
+                              <ion-option value="LU">لوكسمبورج</ion-option>
+                              <ion-option value="LY">ليبيا</ion-option>
+                              <ion-option value="LR">ليبيريا</ion-option>
+                              <ion-option value="LT">ليتوانيا</ion-option>
+                              <ion-option value="LI">ليختنشتاين</ion-option>
+                              <ion-option value="LS">ليسوتو</ion-option>
+                              <ion-option value="MQ">مارتينيك</ion-option>
+                              <ion-option value="MO">ماكاو الصينية</ion-option>
+                              <ion-option value="MT">مالطا</ion-option>
+                              <ion-option value="ML">مالي</ion-option>
+                              <ion-option value="MY">ماليزيا</ion-option>
+                              <ion-option value="YT">مايوت</ion-option>
+                              <ion-option value="MG">مدغشقر</ion-option>
+                              <ion-option value="EG">مصر</ion-option>
+                              <ion-option value="MK">مقدونيا</ion-option>
+                              <ion-option value="MW">ملاوي</ion-option>
+                              <ion-option value="ZZ">منطقة غير معرفة</ion-option>
+                              <ion-option value="MN">منغوليا</ion-option>
+                              <ion-option value="MR">موريتانيا</ion-option>
+                              <ion-option value="MU">موريشيوس</ion-option>
+                              <ion-option value="MZ">موزمبيق</ion-option>
+                              <ion-option value="MD">مولدافيا</ion-option>
+                              <ion-option value="MC">موناكو</ion-option>
+                              <ion-option value="MS">مونتسرات</ion-option>
+                              <ion-option value="MM">ميانمار</ion-option>
+                              <ion-option value="FM">ميكرونيزيا</ion-option>
+                              <ion-option value="NA">ناميبيا</ion-option>
+                              <ion-option value="NR">نورو</ion-option>
+                              <ion-option value="NP">نيبال</ion-option>
+                              <ion-option value="NG">نيجيريا</ion-option>
+                              <ion-option value="NI">نيكاراجوا</ion-option>
+                              <ion-option value="NZ">نيوزيلاندا</ion-option>
+                              <ion-option value="NU">نيوي</ion-option>
+                              <ion-option value="HT">هايتي</ion-option>
+                              <ion-option value="HN">هندوراس</ion-option>
+                              <ion-option value="NL">هولندا</ion-option>
+                              <ion-option value="HK">هونج كونج الصينية</ion-option>
+                              
+                      </ion-select>
                   </ion-item>
+
 
                   <ion-item text-center drop>
                       <ion-label>نوع الهوية</ion-label>

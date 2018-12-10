@@ -70,6 +70,8 @@ export class HomePage {
           "background"      : "assets/images/background/39.jpg",
           "skip"            : "تخطى",
           "logo"            : "assets/logo of app.png",
+          "boy"            : "assets/icon/imoji_boy.png",
+          "girl"            : "assets/icon/imoji_girl.png",
           "login" : {
 
               "username"          : " أدخل البريد الإلكتروني الخاص بك ",

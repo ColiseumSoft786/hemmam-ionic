@@ -22,16 +22,19 @@ page-dashboard {
           width: 120px;
           margin: 0 auto;
         }
-        [cs]{
-          position: absolute;
-          top: 37%;
-          left: 57%;
+        [cs]{          
           width: 20px;
           height: 30px;
           font-size: 20px;
           color : white;
-          padding: 0px;
-          
+          padding: 0px;  
+          position: relative;
+          top : -28px;
+          left: 40px;
+          // margin-left: 6em; 
+          // margin-top: -10em;
+          // margin-bottom: 1em;
+              
       }
       @media only screen and(max-width:840px){
         body{

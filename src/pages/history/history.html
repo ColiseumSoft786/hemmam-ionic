@@ -23,8 +23,7 @@
           <!--Text Content List -->
           <ion-card transparent no-margin *ngFor="let data of videoinfo" >
             <div style="width:100%; ">              
-              <h2 style="float:right; margin: 10px;">{{data.task.tasks}}</h2>
-                <div>{{data.title}}</div>
+              <h2 style="float:right; margin: 10px;">{{data.task.tasks}}</h2>               
               <div item-content item-subtitle  class="status" *ngIf="data.status == 10">
                     <!-- Pending --> قيد الانتظار
               </div>

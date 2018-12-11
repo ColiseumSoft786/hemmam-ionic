@@ -77,8 +77,8 @@ export class ChallengePage {
             this.name=this.userdata.name;
             this.email=this.userdata.email;
             this.challengeStatus =this.userdata.challengestatus;
-            console.log(this.userdata);
-            console.log(this.challengeStatus);
+            // console.log(this.userdata);
+            // console.log(this.userdata.challengestatus , '======');
             this.id=this.userdata.id;
             if(this.userdata.level_status == null){
                 this.videolevel = 1 ;
@@ -140,7 +140,7 @@ export class ChallengePage {
         }
 
     }
-
+    empty :any ;
     fetchChallenges(){
         let datta = {
             userid:this.id,
@@ -152,7 +152,12 @@ export class ChallengePage {
         this.http.get('http://api.hemam.online/fetchchallenge' ,{params: datta} ).map(res =>  res.json()).catch(error => Observable.create(error.json())).subscribe(dataa =>
         {
             loader.dismiss();
-            this.MyselectedChalenge = dataa;
+            this.MyselectedChalenge = dataa;            
+            if(dataa.length == 0){
+                this.empty = 1 ;
+            }else{
+                this.empty = 0 ;
+            }
             console.log(this.MyselectedChalenge);
         });
     }
@@ -245,6 +250,13 @@ export class ChallengePage {
             this.http.post('http://api.hemam.online/videosender?userid='+this.currentid,clientConfirmData).map(res =>  res.json()).catch(error => Observable.create(error.json())).subscribe(dataa =>
             {
                 console.log(JSON.stringify(dataa));
+                this.MyselectedChalenge = dataa;
+                const toast = this.toastCtrl.create({
+                message: 'تم تحميل الفيديو بنجاح',
+                duration: 5000
+            });
+            toast.present();
+            this.navCtrl.setRoot(DashboardPage); 
                 loader.dismiss();
             },err => {
                 loader.dismiss();

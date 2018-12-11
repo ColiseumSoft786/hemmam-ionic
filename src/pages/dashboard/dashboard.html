@@ -16,17 +16,21 @@
     <ion-grid *ngIf="data != null">
         <ion-col col-12>
             <ion-card padding box-shadow>
-            <ion-avatar>
-              <img src="{{ data.profile }}" alt="">
-             
+            <ion-avatar >
+              <img src="{{ data.profile }}" alt="">    
+                      
             </ion-avatar>
+          <div style="width:100%; text-align:center;">
+            <ion-badge cs color="accent" (click)="changephoto()"><ion-icon in name="create"></ion-icon>
+            </ion-badge>
+          </div>
             <ion-card-content text-center>
-                <ion-badge cs color="accent" (click)="changephoto()"><ion-icon in name="create"></ion-icon></ion-badge>
+               
               <h1>{{data.name}}</h1>
               <p>{{data.email}} : البريد الإلكتروني </p>
               <!-- <p *ngIf="data.level == null" >مستوى :  </p>  -->
-              <p *ngIf="data.test != 1 ">  مستوى : أي مستوى </p> 
-              <p *ngIf="data.test == 1 ">مستوى : {{data.level.name}}</p> 
+              <p *ngIf="test == 0 ">  مستوى : أي مستوى </p> 
+              <p *ngIf="test == 1 ">مستوى : {{data.level.name}}</p>  
             </ion-card-content>
             <div style="width:100%; text-align:center;">
             <button ion-button  outline (click)="gotochallenge()">التحديات</button>
@@ -38,14 +42,25 @@
         
         <br>
         <ion-grid >
-        <div style="width:100%; text-align:center;">   
-          <button ion-button style="width:45%; " outline (click)="gotofounder()" >مؤسس</button>   
-          <button ion-button style="width:45%; " outline (click)="gotohicertificate()">شهادتي</button>      
-          <button ion-button  outline (click)="gotosponser()">الداعمين</button>
-          <button ion-button  outline (click)="gotopartner()">شريك</button>
-          <button ion-button  outline (click)="gotolibrary()">مكتبة</button>            
-          </div>
-          </ion-grid>
+            <ion-row>
+              
+            <ion-col col-xs-12>       
+            <button ion-button outline block (click)="gotofounder()" >مؤسس</button>           
+          </ion-col>
+          <ion-col col-xs-12 > 
+          <button ion-button outline block (click)="gotohicertificate()">شهادتي</button>   
+          </ion-col>
+          <ion-col col-xs-12 >    
+            <button ion-button outline block (click)="gotosponser()">الداعمين</button>
+            </ion-col>
+            <ion-col col-xs-12> 
+            <button ion-button outline block (click)="gotopartner()">شريك</button>
+            </ion-col>
+            <ion-col col-xs-12 > 
+            <button ion-button outline block (click)="gotolibrary()">مكتبة</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
             
        
         

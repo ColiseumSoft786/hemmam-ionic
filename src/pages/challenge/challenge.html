@@ -7,6 +7,21 @@
 <!--  Theme Form - Form Write Address -->
 <ion-content>
   <ion-grid>
+
+        <ion-grid no-padding *ngIf="empty == 1 ">
+                <ion-row>
+                    <ion-col col-12 align-self-start  >
+                        <ion-card profile padding text-center box-shadow>                          
+                          <ion-card-content  text-right>
+                            <h1 ion-text color="secondary"> انتظر التحدي التالي </h1>                      
+                          </ion-card-content> 
+                        </ion-card>
+                      </ion-col>
+                </ion-row>
+            </ion-grid>
+
+
+
     
       <ion-grid no-padding *ngIf="challengeStatus != 1 ">
           <ion-row>
@@ -17,8 +32,7 @@
                       <h1 ion-text color="secondary"> اختر التحدي الخاص بك </h1>                      
                     </ion-card-content> 
 
-                    <ion-col col-12 align-self-start>    
-                      <p class="right"> اختر تحديك الأول  </p>   
+                    <ion-col col-12 align-self-start> 
 
                       <ion-item no-lines box-shadow margin-bottom >
                           <ion-label >اختر المهمة</ion-label>
@@ -34,6 +48,7 @@
                 </ion-col>
           </ion-row>
       </ion-grid>
+
       <ion-grid no-padding *ngIf="challengeStatus == 1">
           <ion-row>
               <ion-col col-12>
@@ -47,9 +62,7 @@
           </ion-row>
       </ion-grid>
       <form enctype="multipart/form-data">
-
           <input type="file" id="uploadfile" style="display: none;" accept="video/*" (change)="uploadfromfile($event)" >
       </form>
-
   </ion-grid>
 </ion-content>

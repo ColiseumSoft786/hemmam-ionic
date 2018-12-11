@@ -52,11 +52,13 @@ test:any;
     this.data.level=this.userdata.level_status;
     this.data.profile=this.userdata.personal_image;
     this.id=this.userdata.id;
+
     if(this.userdata.level_status == null){
-        this.test = '2';
+        this.test = '0';
     }else{
         this.test = '1' ;        
     }
+    console.log(this.test);
   }
 }
 

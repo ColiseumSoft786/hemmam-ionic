@@ -39,13 +39,17 @@
               <ion-col col-12>
                 <ion-card>
                   <ion-list-header box-shadow no-margin no-lines *ngFor="let list of MyselectedChalenge">
-                      <h2 align="right">{{ list.task.tasks }}</h2> <button ion-button  outline (click)="uploadvideo()">رفع فيديو</button>   
+                      <h2 align="right">{{ list.task.tasks }}</h2> <button ion-button (click)="clickupload(list.id)" outline>رفع فيديو</button>
                   <hr>
                     </ion-list-header>
                 </ion-card>
                 </ion-col>
           </ion-row>
       </ion-grid>
-  
+      <form enctype="multipart/form-data">
+
+          <input type="file" id="uploadfile" style="display: none;" accept="video/*" (change)="uploadfromfile($event)" >
+      </form>
+
   </ion-grid>
 </ion-content>

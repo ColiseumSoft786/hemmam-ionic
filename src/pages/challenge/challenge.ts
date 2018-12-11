@@ -1,27 +1,23 @@
 
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams, Platform} from 'ionic-angular';
 import {LoadingController , ToastController} from 'ionic-angular';
 import 'rxjs/add/operator/map';
-import {Http} from "@angular/http";
+import {Http, RequestOptions} from "@angular/http";
 import { MenuController } from 'ionic-angular';
 import { DashboardPage } from '../dashboard/dashboard';
-import { HistoryPage } from '../history/history';
 import { HomePage } from '../home/home';
 
 
-import {FileTransfer, FileUploadOptions, FileTransferObject} from "@ionic-native/file-transfer";
+import {FileTransfer} from "@ionic-native/file-transfer";
 import {File} from "@ionic-native/file";
-import {Camera,CameraOptions} from "@ionic-native/camera";
+import {Camera} from "@ionic-native/camera";
 import {Observable} from "rxjs";
 import { Chooser } from '@ionic-native/chooser';
-import {
-    MediaCapture,
-    MediaFile,
-    CaptureError,
-    CaptureImageOptions,
-    CaptureVideoOptions
-} from '@ionic-native/media-capture';
+import { MediaCapture } from '@ionic-native/media-capture';
+import {FileChooser} from "@ionic-native/file-chooser";
+import {FileChooserAndroidProvider} from "../../providers/file-chooser-android/file-chooser-android";
+import {HttpHeaders} from "@angular/common/http";
 
 
 /**
@@ -47,13 +43,13 @@ export class ChallengePage {
         }
     };
     challenge :any;
-    firstName:String;
-    task: [];
-    lastName:String;
-    address1:String;
-    address2:String;
-    city:String;
-    zipCode:String;
+    firstName:any;
+    task: any;
+    lastName: any;
+    address1: any;
+    address2: any;
+    city: any;
+    zipCode: any;
 
 
 
@@ -68,7 +64,7 @@ export class ChallengePage {
     challengeStatus:any;
     MyselectedChalenge:any;
 
-    constructor(private mediaCapture: MediaCapture,private chooser: Chooser,public platform: Platform,public navParams: NavParams,private transfer: FileTransfer, private file: File,private camera: Camera, public menuCtrl: MenuController , public navCtrl: NavController,private http:Http , private loadingCtrl: LoadingController , private toastCtrl: ToastController)
+    constructor(private fileChooserAndroid: FileChooserAndroidProvider,private fileChooser: FileChooser,private mediaCapture: MediaCapture,private chooser: Chooser,public platform: Platform,public navParams: NavParams,private transfer: FileTransfer, private file: File,private camera: Camera, public menuCtrl: MenuController , public navCtrl: NavController,private http:Http , private loadingCtrl: LoadingController , private toastCtrl: ToastController)
     {
         this.menuCtrl.enable(true, 'logMenu');
         if (localStorage.getItem("user") === null) {
@@ -81,6 +77,7 @@ export class ChallengePage {
             this.name=this.userdata.name;
             this.email=this.userdata.email;
             this.challengeStatus =this.userdata.challengestatus;
+            console.log(this.userdata);
             console.log(this.challengeStatus);
             this.id=this.userdata.id;
             if(this.userdata.level_status == null){
@@ -88,15 +85,14 @@ export class ChallengePage {
             }else{
                 this.videolevel=this.userdata.level_status.id;
             }
-            let datta = {           
-                userid:this.id,                  
-            };           
-            this.http.get('http://api.hemam.online/fetchchallenge' ,{params: datta} ).map(res =>  res.json()).catch(error => Observable.create(error.json())).subscribe(dataa =>
-            {
-                var mychallengs = dataa;     
-                this.MyselectedChalenge = mychallengs;          
-                                              
-            });
+            if(this.challengeStatus == 1){
+                this.fetchChallenges();
+            }
+
+
+
+
+
 
 
 
@@ -145,8 +141,26 @@ export class ChallengePage {
 
     }
 
+    fetchChallenges(){
+        let datta = {
+            userid:this.id,
+        };
+        const loader = this.loadingCtrl.create({
+            content: " ... ارجوك انتظر",
+        });
+        loader.present();
+        this.http.get('http://api.hemam.online/fetchchallenge' ,{params: datta} ).map(res =>  res.json()).catch(error => Observable.create(error.json())).subscribe(dataa =>
+        {
+            loader.dismiss();
+            this.MyselectedChalenge = dataa;
+            console.log(this.MyselectedChalenge);
+        });
+    }
+
+
     public myphoto;
     public imgdata;
+    public fileer: any;
 
     user: any;
     dataa: any;
@@ -176,8 +190,12 @@ export class ChallengePage {
             this.http.get('http://api.hemam.online/sendchallenge' ,{params: datta} ).map(res =>  res.json()).catch(error => Observable.create(error.json())).subscribe(dataa =>
             {
                 var result = dataa;
-                this.vid= dataa;
+                this.MyselectedChalenge = dataa[0];
+                this.challengeStatus = 1;
+                let user = JSON.stringify(dataa[1]);
+                localStorage.setItem('user',user);
                 console.log(result);
+
                 loader.dismiss();
                 if (result != 0 ){                 
                     const toast = this.toastCtrl.create({
@@ -205,141 +223,42 @@ export class ChallengePage {
 
     }
 
+    private currentid;
+    clickupload(id){
+        this.currentid = id;
+        document.getElementById('uploadfile').click();
+    }
+    uploadfromfile($event) : void{
+
+        this.fileer = $event.target.files[0];
+        if (this.fileer != null){
+            const loader = this.loadingCtrl.create({
+                content: "Loading...",
+            });
+            loader.present();
+            let clientConfirmData = new FormData();
+            clientConfirmData.append('photo', this.fileer);
+
+            // var headers = new Headers();
+            // headers.append('Content-Type', 'multipart/form-data' );
+            // const requestOptions = new RequestOptions({ headers: headers });
+            this.http.post('http://api.hemam.online/videosender?userid='+this.currentid,clientConfirmData).map(res =>  res.json()).catch(error => Observable.create(error.json())).subscribe(dataa =>
+            {
+                console.log(JSON.stringify(dataa));
+                loader.dismiss();
+            },err => {
+                loader.dismiss();
+                const toast = this.toastCtrl.create({
+                    message: 'شيء ما خطأ. حاول مرة اخرى',
+                    duration: 4000
+                });
+                toast.present();
+            });
+        }
 
 
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-        
-        
-
-
-
-
-    // uploadvideo(){
-    //     if (this.firstName == '' || this.task == '' || this.imgdata == null) {
-    //         const toast = this.toastCtrl.create({
-    //             message: 'بيانات الاعتماد الخاصة بك ليست صحيحة',
-    //             duration: 4000
-    //         });
-    //         toast.present();
-    //     }else{
-    //         console.log("clicked submit btn");
-    //         let datta = {
-    //             videotask: this.task,
-    //             videotitle:this.firstName,
-    //             userid:this.id,
-    //             level:this.videolevel
-    //         };
-    //         const loader = this.loadingCtrl.create({
-    //             content: " ... جلب البيانات",
-    //         });
-    //         loader.present();
-    //         this.http.get('http://api.hemam.online/video' ,{params: datta} ).map(res =>  res.json()).catch(error => Observable.create(error.json())).subscribe(dataa =>
-    //         {
-    //             var result = dataa;
-    //             this.vid= dataa;
-    //             console.log(result);
-    //             loader.dismiss();
-    //             if (result != 0 ){
-    //                 this.upload(result);
-    //                 const toast = this.toastCtrl.create({
-    //                     message: 'تم تحميل الفيديو بنجاح ',
-    //                     duration: 4000
-    //                 });
-    //                 toast.present();
-    //             }else{
-    //                 const toast = this.toastCtrl.create({
-    //                     message: 'بيانات الاعتماد الخاصة بك ليست صحيحة',
-    //                     duration: 4000
-    //                 });
-    //                 toast.present();
-    //             }
-    //         },
-    //             err => {
-    //                 loader.dismiss();
-    //                 const toast = this.toastCtrl.create({
-    //                     message: 'شيء ما خطأ. حاول مرة اخرى',
-    //                     duration: 4000
-    //                 });
-    //                 toast.present();
-    //             });
-    //     }
-
-    // }
-    // error: any;
-
-    // changephoto(){
-   /*this.chooser.getFile('video/!*')
-            .then(file => this.upload(file) )
-            .catch((error: any) => alert(error));*/
-/*        let options: CaptureVideoOptions = { limit: 1,duration: 30 };
-        this.mediaCapture.captureVideo(options)
-            .then(
-                (data: MediaFile[]) => alert(data[0].fullPath),
-                (err: CaptureError) => console.error(err)
-            );*/
-
-
-
-    //     const camera: any = navigator['camera'];
-    //     camera.getPicture(imageData => {
-    //         this.myphoto = null;
-    //         this.imgdata = imageData;
-    //         this.upload(1);
-    //         this.selected = 'Video has been selected';
-    //     }, error => this.error = JSON.stringify(error), {
-    //         sourceType : this.camera.PictureSourceType.SAVEDPHOTOALBUM,
-    //         destinationType: this.camera.DestinationType.FILE_URI,
-    //         mediaType: this.camera.MediaType.VIDEO
-    //         //If i do Video here. it will not upload.
-    //         // Now it will upload the images
-    //         // DO you have any idea ??
-    //     });
-    // }
-    // upload(vid){
-    //     const loader = this.loadingCtrl.create({
-    //         content: "Loading...",
-    //     });
-    //     loader.present();
-    //     var timestamp = new Date().getUTCMilliseconds();
-    //     console.log(this.imgdata.toURL());
-    //     const fileTransfer: FileTransferObject = this.transfer.create();
-    //     var options: FileUploadOptions ={
-    //         fileKey: 'vid',
-    //         mimeType: "multipart/form-data",
-    //         chunkedMode: false,
-    //         httpMethod: 'post',
-    //         // headers: {Connection: 'close'}
-    //     };
-    //     fileTransfer.upload(this.imgdata,'http://api.hemam.online/videosendersave?userid='+vid,options)
-    //         .then((data) => {
-    //             console.log('Done: ' + JSON.stringify(data));
-
-    //             loader.dismiss();
-    //         }, (error) => {
-    //             // error
-    //             alert("An error has occurred: Code = " + error.code);
-    //             console.log("upload error source " + error.source);
-    //             console.log("upload error target " + error.target);
-    //             console.log(error.body);
-    //             loader.dismiss();
-
-    //         });
-    // }
 
     onEvent(event: string, e: any) {
         if (e) {

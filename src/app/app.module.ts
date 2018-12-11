@@ -23,6 +23,10 @@ import { File } from '@ionic-native/file';
 import {Camera} from "@ionic-native/camera";
 import {Chooser} from "@ionic-native/chooser";
 import {MediaCapture} from "@ionic-native/media-capture";
+import {FileChooser} from "@ionic-native/file-chooser";
+import { FileChooserAndroidProvider } from '../providers/file-chooser-android/file-chooser-android';
+import {FilePath} from "@ionic-native/file-path";
+import {Base64} from "@ionic-native/base64";
 
 
 
@@ -67,7 +71,12 @@ import {MediaCapture} from "@ionic-native/media-capture";
       Camera,
       Chooser,
       MediaCapture,
+      FileChooser,
+      FilePath,
+      Base64,
+      FileChooserAndroidProvider,
       {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FileChooserAndroidProvider,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
